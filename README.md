@@ -12,5 +12,5 @@ _Instalaremos las dependencias de nuestro primer programa_
 
 ### Para hacer pruebas
 
-  * ´Junit´ va dentro de las librerias de java
+  * _JUnit_ - librerias de java para testing
   * [Postman](https://www.postman.com/downloads/) - test de api desde web o escritorio
