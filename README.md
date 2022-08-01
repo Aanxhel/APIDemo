@@ -1,6 +1,6 @@
 # APIDemo
 Crearemos un proyecto base en STS4 el cualnos ayudara en futuras practicas
-## Instalación
+### Requisitos
 necesitaremos de preferencia java 8 , de no ser posible tambien se puede usar java 11
 
   * [Java 8](https://www.oracle.com/mx/java/technologies/javase/javase8u211-later-archive-downloads.html) - Version usada
