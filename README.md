@@ -10,6 +10,17 @@ necesitaremos de preferencia java 8 , de no ser posible tambien se puede usar ja
 ### Proyecto Base STS4
 _Instalaremos las dependencias de nuestro primer programa_
 
+ * Maven
+ * Jar
+
+```
+Spring Boot DevTools
+Spring Data JPA
+Thymeleaf
+MySQL Driver
+Spring Web
+```
+
 ### Para hacer pruebas
 
   * _JUnit_ - librerias de java para testing
