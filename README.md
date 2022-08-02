@@ -12,6 +12,7 @@ _Instalaremos las dependencias de nuestro primer programa_
 
  * Maven
  * Jar
+ * Dependencias que usaremos
 
 ```
 Spring Boot DevTools
