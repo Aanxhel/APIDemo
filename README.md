@@ -2,7 +2,7 @@
 Crearemos un proyecto base en STS4 el cualnos ayudara en futuras practicas
 
 ### Requisitos
-necesitaremos de preferencia java 11
+Necesitaremos de preferencia java 11
 
   * [Java 11](https://www.oracle.com/mx/java/technologies/javase/jdk11-archive-downloads.html) - Version usada
   * [STS4](https://spring.io/tools) - Framework para el funcionamiento de la API
@@ -26,3 +26,9 @@ Spring Web
 
   * _JUnit_ - librerias de java para testing
   * [Postman](https://www.postman.com/downloads/) - test de api desde web o escritorio
+
+# Apuntes de ayuda
+
+### CheetSheet
+
+ * [CheetSheet](https://introcs.cs.princeton.edu/java/11cheatsheet/) - Ayuda con la codificación 
