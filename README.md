@@ -27,6 +27,7 @@ Spring Web
   * _JUnit_ - librerias de java para testing
   * [Postman](https://www.postman.com/downloads/) - test de api desde web o escritorio
   * [SonarLint](https://www.sonarlint.org/eclipse?gclid=CjwKCAjwlqOXBhBqEiwA-hhitCcafbUkgbK2AJLpXp_v5wppQEdNGuVRDhKfKnFrVM8TboI6fp291BoCxG0QAvD_BwE) - Herramienta de pruebas Eclipse
+  * [Sonatype Nexus IQ](https://help.sonatype.com/integrations/iq-server-and-ides/iq-for-eclipse#IQforEclipse-ConfiguringSonatypeNexusIQforEclipse) - Calidad de sw
 
 # Apuntes de ayuda
 
