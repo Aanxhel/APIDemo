@@ -52,4 +52,12 @@ public class IndexController {
 		return "listar";
 	}
 
+	/*
+	 * si queremos hacer globarl una lista podemos usar un
+	 * @ModelAttribute
+	 * 
+	 * */
+		
+	
+
 }

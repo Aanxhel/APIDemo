@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+</head>
+
+<body>
+    <h1>Enviar parametros HTTP GET</h1>
+
+    <!--
+        simpre rutas propias del proyecto
+    -->
+    <ul>
+        <li>
+            <a th:href="@{/params/string(texto='hola guapa')}">/params/string?texto=Hola guapa</a>
+        </li>
+
+        <li>
+            <a th:href="@{/params/string(texto='Jhonny Deep')}">/params/string?texto=Jhonny Deep</a>
+        </li>
+    </ul>
+</body>
+
+</html>
