@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AppwebbApplication {
 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(AppwebbApplication.class, args);
 	}
