@@ -1,13 +1,13 @@
-package com.dev.backend.apirest;
+package com.shop.notion.appwebb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HomeworkApiTestApplication {
+public class AppwebbApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HomeworkApiTestApplication.class, args);
+		SpringApplication.run(AppwebbApplication.class, args);
 	}
 
 }
