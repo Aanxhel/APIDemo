@@ -1,10 +1,10 @@
-package com.dev.springboot.backend.apirest;
+package com.shop.notion.appwebb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HomeworkApiTestApplicationTests {
+class AppwebbApplicationTests {
 
 	@Test
 	void contextLoads() {
