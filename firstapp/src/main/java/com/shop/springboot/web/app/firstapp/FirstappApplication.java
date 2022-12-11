@@ -1,13 +1,13 @@
-package com.shop.notion.appwebb;
+package com.shop.springboot.web.app.firstapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AppwebbApplication {
+public class FirstappApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AppwebbApplication.class, args);
+		SpringApplication.run(FirstappApplication.class, args);
 	}
 
 }
