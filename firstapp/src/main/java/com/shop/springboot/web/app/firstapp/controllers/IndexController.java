@@ -1,5 +1,8 @@
 package com.shop.springboot.web.app.firstapp.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,5 +35,13 @@ public class IndexController {
 		model.addAttribute("user", userModel);
 		
 		return "profile";
+	}
+	
+	@GetMapping("/listed")
+	public String listed(Model model) {
+		List<UserModel> users = new ArrayList<>();
+		model.addAttribute("title", "User List");
+		model.addAttribute("users", users);
+		return "listed";
 	}
 }

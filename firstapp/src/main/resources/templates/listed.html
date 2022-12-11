@@ -10,5 +10,7 @@
 
 	<h1 th:text="${title}"></h1>
 
+	<div th:if="${users.size() == 0}">no hay usuarios</div>
+
 </body>
 </html>
