@@ -4,10 +4,8 @@ public class FirtsObject {
 
 	public static void main(String args[]) {
 
-		Car car = new Car();
-
-		car.detail(3, "Agustin");
-
+		Colores colores = Colores.AZUL;
+		System.out.println(colores.getName());
 	}
 
 }
