@@ -1,0 +1,4 @@
+com\project\testing\controllers\TestingController.class
+com\project\testing\service\imp\TestingServiceImpl.class
+com\project\testing\service\imp\ValidacionesServiceImpl.class
+com\project\testing\service\TestingService.class
