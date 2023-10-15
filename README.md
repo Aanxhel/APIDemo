@@ -4,21 +4,22 @@ Crearemos un proyecto base en EE el cual nos ayudara en futuras practicas
 ### Requisitos
 Necesitaremos de preferencia java 1.8
 
-  * [Java 8](https://www.oracle.com/mx/java/technologies/javase/javase8-archive-downloads.html) - Version usada
-  * [EE](https://spring.io/tools) - Framework para el funcionamiento de la API
+  * [Java 1.8](https://www.oracle.com/mx/java/technologies/javase/javase8-archive-downloads.html) - Version usada
+  * [Maven](https://maven.apache.org/download.cgi) - Librerias Maven
+  * _Eclipse_ - IDE de Java recomendado
+  * [lombok](https://projectlombok.org/setup/eclipse) -herramientas para Eclipse
+  
 
 ### Proyecto Base STS4
 _Instalaremos las dependencias de nuestro primer programa_
 
  * Maven
- * Jar
+ * war
  * Dependencias que usaremos
 
 ```
 Spring Boot DevTools
 Spring Data JPA
-Thymeleaf
-MySQL Driver
 Spring Web
 ```
 
