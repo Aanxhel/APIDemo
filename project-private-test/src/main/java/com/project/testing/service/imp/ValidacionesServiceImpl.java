@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.project.testing.beans.RequestFormulaGeneral;
+import com.project.testing.beans.RequestPersona;
 import com.project.testing.beans.ResponseEuler;
+import com.project.testing.beans.ResponseRfc;
 
 @SuppressWarnings("rawtypes")
 @Service
@@ -52,7 +54,7 @@ public class ValidacionesServiceImpl {
 			}
 		} else {
 			String mensajeError = "Datos incorrectos";
-			
+
 			response = new ResponseEuler();
 			List<String> mensajesError = new ArrayList<String>();
 			mensajesError.add(mensajeError);
@@ -63,5 +65,65 @@ public class ValidacionesServiceImpl {
 
 		return entity;
 	}
+
+	// validacion de servicio RFC
+	public List<String> validarPersona(RequestPersona request) {
+
+		List<String> error = new ArrayList<String>();
+
+		if (request.getNombre() == null || request.getNombre().equals("")) {
+			error.add("Es obligatorio el Nombre");
+		}
+
+		if (request.getApellidoPaterno() == null || request.getApellidoPaterno().equals("")) {
+			error.add("Es obligatorio el Apellido Paterno");
+		}
+
+		if (request.getApellidoMaterno() == null || request.getApellidoMaterno().equals("")) {
+			error.add("Es obligatorio el Apellido Materno");
+		}
+
+		if (request.getFechaNacimineto() == null || request.getFechaNacimineto().equals("")) {
+			error.add("Es obligatorio el Fecha Nacimineto");
+		}
+
+		return error;
+	}
+	
+	public ResponseRfc responseRfc(List<String> errores) {
+		ResponseRfc response = new ResponseRfc();
+
+//		response.setErrorCode(400L);
+//		response.setErrorDescription(errores);
+
+		return response;
+	}
+	
+	public ResponseEntity validarResponseRfc(ResponseRfc response) {
+		ResponseEntity entity = null;
+
+		if (response != null) {
+//			if (response.getErrorDescription() == null) {
+//				entity = ResponseEntity.ok().body(response);
+//			} else if (response.getErrorCode() != null && response.getErrorCode().equals(400L)) {
+//				entity = ResponseEntity.badRequest().body(response);
+//			} else {
+//				entity = ResponseEntity.status(response.getErrorCode().intValue()).body(response);
+//			}
+		} else {
+			String mensajeError = "Datos incorrectos";
+
+			response = new ResponseRfc();
+			List<String> mensajesError = new ArrayList<String>();
+			mensajesError.add(mensajeError);
+//			response.setErrorCode(400L);
+//			response.setErrorDescription(mensajesError);
+			entity = ResponseEntity.badRequest().body(response);
+		}
+
+		return entity;
+	}
+	
+	// fin validacion de servicio RFC
 
 }

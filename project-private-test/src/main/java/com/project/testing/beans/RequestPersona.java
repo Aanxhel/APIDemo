@@ -1,5 +1,7 @@
 package com.project.testing.beans;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RequestPerdona {
+public class RequestPersona {
 	
 	@JsonProperty("nombre")
     private String nombre;
@@ -24,6 +26,8 @@ public class RequestPerdona {
 	@JsonProperty("apellidoMaterno")
     private String apellidoMaterno;
 	
-	@JsonProperty("apellidoMaterno")
-	private Datos datos;
+	@JsonProperty("fechaNacimineto")
+    private Date fechaNacimineto; //AAAA-MM-DD
+	
+
 }

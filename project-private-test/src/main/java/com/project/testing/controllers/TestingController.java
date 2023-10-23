@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.testing.beans.RequestFormulaGeneral;
+import com.project.testing.beans.RequestPersona;
 import com.project.testing.beans.ResponseEuler;
+import com.project.testing.beans.ResponseRfc;
 import com.project.testing.service.TestingService;
 import com.project.testing.service.imp.ValidacionesServiceImpl;
 
@@ -58,16 +60,23 @@ public class TestingController {
 		return validacionesService.validarResponse(response);
 	}
 	
-	@PostMapping(value = "/getDommy", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity getDommy(@RequestHeader HttpHeaders headers,
-			@Validated @RequestBody RequestFormulaGeneral request, Errors errors) throws Exception {
+	//obtener RFC
+	@PostMapping(value = "/getRfc", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity getSolicitudRfc(@RequestHeader HttpHeaders headers,
+			@Validated @RequestBody RequestPersona request, Errors errors) throws Exception {
 		
 		List<String> mensajesError;
 
-		mensajesError = validacionesService.validarRequest(request);
-		
-		 
-		return null;
+		mensajesError = validacionesService.validarPersona(request);
+
+		ResponseRfc response = new ResponseRfc();
+
+		if (mensajesError.isEmpty()) {
+			response = testingService.getRfc(request);
+		} else {
+			response = validacionesService.responseRfc(mensajesError);
+		}
+		return validacionesService.validarResponseRfc(response);
 	}
 
 }
