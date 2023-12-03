@@ -19,9 +19,11 @@ import lombok.NoArgsConstructor;
 public class Empleado implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	//DBA INVEX_USER
+	//la tabla se llama Empleado
 	
 	@JsonProperty("id")
-	private Long id;
+	private Long id_empleado;
 	
 	@JsonProperty("primerNombre")
 	private String primerNombre;
@@ -46,6 +48,5 @@ public class Empleado implements Serializable{
 	
 	@JsonProperty("puesto")
 	private String puesto;
-	
 	
 }
