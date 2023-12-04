@@ -127,15 +127,24 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+<!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
+<dependency>
+    <groupId>jakarta.persistence</groupId>
+    <artifactId>jakarta.persistence-api</artifactId>
+    <version>3.2.0-M1</version>
+</dependency>
+
+
 
 	</dependencies>
 	<profiles>
-<!--		<profile>-->
-<!--			<id>dev</id>-->
-<!--			<properties>-->
-<!--				<jndi.name>jdbc/persona_db</jndi.name>-->
-<!--			</properties>-->
-<!--		</profile>-->
+		<profile>
+			<id>dev</id>
+			<properties>
+				<!--				<jndi.name>jdbc/persona_db</jndi.name>-->
+				<jndi.name></jndi.name>
+			</properties>
+		</profile>
 
 	</profiles>
 	<build>
@@ -158,4 +167,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>

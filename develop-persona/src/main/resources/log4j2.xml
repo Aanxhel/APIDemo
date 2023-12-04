@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="warn">
     <Properties>
-<!--         <Property name="basePath">/logs/weblogic/developapp</Property> -->
-        <Property name="basePath">/Oracle/Middleware/Oracle_Home/logs/weblogic</Property>
+        <Property name="basePath">/logs/weblogic/developapp</Property>
+<!--         <Property name="basePath">/Oracle/Middleware/Oracle_Home/logs/weblogic</Property> -->
     </Properties>
 
     <Appenders>
