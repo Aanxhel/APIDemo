@@ -1,5 +1,0 @@
-<html>
-<body>
-<h2>Testing!</h2>
-</body>
-</html>

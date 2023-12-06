@@ -14,27 +14,34 @@ import org.springframework.web.bind.annotation.RestController;
 import com.develop.app.models.entity.Empleado;
 import com.develop.app.models.services.IEmpleadoService;
 
+
+
 @RestController
 @SuppressWarnings({ "rawtypes" })
 public class DevelopController {
 
 	@Autowired
 	private IEmpleadoService empleadoService;
-
+	
 	Logger logger = LogManager.getLogger(DevelopController.class);
 
 	@PostMapping(value = "/holamundo", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity helloWorld() {
-		ResponseEntity entity = null;
+		
 		logger.info(":::hola mundo:::");
+		
+		ResponseEntity entity = null;
 		entity = ResponseEntity.ok().body("{\"status\":\"ok\"}");
 		return entity;
 	}
 
 	@GetMapping("/monstrarEmpleado")
-	public List<Empleado> index(){
+	public List<Empleado> getEmpleado(){
 		logger.info("get empleado");
-		return empleadoService.findAll();
+		
+		List<Empleado> empleadoList = empleadoService.findAll(); 
+		
+		return empleadoList;
 	}
 
 
