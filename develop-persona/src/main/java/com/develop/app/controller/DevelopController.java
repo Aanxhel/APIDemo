@@ -11,35 +11,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.develop.app.entity.Empleado;
-import com.develop.app.service.IEmpleadoService;
+import com.develop.app.models.entity.Empleado;
+import com.develop.app.models.services.IEmpleadoService;
 
 @RestController
 @SuppressWarnings({ "rawtypes" })
 public class DevelopController {
 
 	@Autowired
-	private IEmpleadoService service;
+	private IEmpleadoService empleadoService;
 
 	Logger logger = LogManager.getLogger(DevelopController.class);
 
 	@PostMapping(value = "/holamundo", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity helloWorld() {
 		ResponseEntity entity = null;
-
 		logger.info(":::hola mundo:::");
 		entity = ResponseEntity.ok().body("{\"status\":\"ok\"}");
 		return entity;
 	}
 
-	// la base de datos: datos_empleado
+	@GetMapping("/monstrarEmpleado")
+	public List<Empleado> index(){
+		logger.info("get empleado");
+		return empleadoService.findAll();
+	}
+
 
 	// peticion get
-	@GetMapping("/obtenerEmpleado")
-	public List<Empleado> listaEmpleado() {
-		logger.info("obtenerEmpleado");
-		return service.listarEmpleados();
-	}
+//	@GetMapping("/obtenerEmpleado")
+//	public List<Empleado> listaEmpleado() {
+//		logger.info("obtenerEmpleado");
+//		return service.listarEmpleados();
+//	}
 
 //	public void guardarEmpleado(Empleado empleado) {
 //		service.guardarEmpleado(empleado);
@@ -50,7 +54,8 @@ public class DevelopController {
 //	}
 
 	/*
-	 * CREATE TABLE `datos_empleado`.`tbl_empleado_u` ( `id` INT NOT NULL,
+	 * use database develop_db;
+	 * CREATE TABLE `tbl_empleado_u` ( `id` INT NOT NULL,
 	 * `primerNombre` VARCHAR(20) NULL, `segundoNombre` VARCHAR(20) NULL,
 	 * `apelliPat` VARCHAR(20) NULL, `apelliMat` VARCHAR(20) NULL, `edad` INT NULL,
 	 * `sexo` VARCHAR(10) NULL, `fechaNacimiento` DATE NULL, `puesto` VARCHAR(60)
