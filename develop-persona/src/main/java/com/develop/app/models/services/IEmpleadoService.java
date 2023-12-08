@@ -11,5 +11,5 @@ public interface IEmpleadoService {
 	
 	Logger logger = LogManager.getLogger(IEmpleadoService.class);
 	
-	public List<Empleado> findAll();
+	public List<Empleado> findAll() throws Exception;
 }

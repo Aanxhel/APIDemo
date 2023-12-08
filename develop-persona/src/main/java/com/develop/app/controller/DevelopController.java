@@ -1,17 +1,13 @@
 package com.develop.app.controller;
 
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.develop.app.models.entity.Empleado;
 import com.develop.app.models.services.IEmpleadoService;
 
 
@@ -35,14 +31,21 @@ public class DevelopController {
 		return entity;
 	}
 
-	@GetMapping("/monstrarEmpleado")
-	public List<Empleado> getEmpleado(){
-		logger.info("get empleado");
-		
-		List<Empleado> empleadoList = empleadoService.findAll(); 
-		
-		return empleadoList;
-	}
+//	@GetMapping("/monstrarEmpleado")
+//	public List<Empleado> getEmpleado(){
+//		logger.info("get empleado");
+//		
+//		List<Empleado> empleadoList = null;
+//		
+//		try {
+//			empleadoList = empleadoService.findAll();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} 
+//		
+//		return empleadoList;
+//	}
 
 
 	// peticion get
@@ -62,7 +65,7 @@ public class DevelopController {
 
 	/*
 	 * use database develop_db;
-	 * CREATE TABLE `tbl_empleado_u` ( `id` INT NOT NULL,
+	 * CREATE TABLE `tbl_empleado` ( `id` INT NOT NULL,
 	 * `primerNombre` VARCHAR(20) NULL, `segundoNombre` VARCHAR(20) NULL,
 	 * `apelliPat` VARCHAR(20) NULL, `apelliMat` VARCHAR(20) NULL, `edad` INT NULL,
 	 * `sexo` VARCHAR(10) NULL, `fechaNacimiento` DATE NULL, `puesto` VARCHAR(60)
