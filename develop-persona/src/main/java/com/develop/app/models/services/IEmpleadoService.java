@@ -1,15 +1,14 @@
 package com.develop.app.models.services;
 
-import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.ArrayList;
 
 import com.develop.app.models.entity.Empleado;
 
 public interface IEmpleadoService {
-	
-	Logger logger = LogManager.getLogger(IEmpleadoService.class);
-	
-	public List<Empleado> findAll() throws Exception;
+
+//	Logger logger = LogManager.getLogger(IEmpleadoService.class);
+
+	ArrayList<Empleado> obtenerUsuario();
+
+	Empleado guardarEmpleado(Empleado empleado);
 }

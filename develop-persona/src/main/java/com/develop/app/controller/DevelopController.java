@@ -1,71 +1,60 @@
 package com.develop.app.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.develop.app.models.entity.Empleado;
 import com.develop.app.models.services.IEmpleadoService;
-
-
 
 @RestController
 @SuppressWarnings({ "rawtypes" })
 public class DevelopController {
 
 	@Autowired
-	private IEmpleadoService empleadoService;
-	
-	Logger logger = LogManager.getLogger(DevelopController.class);
+	IEmpleadoService empleadoService;
 
-	@PostMapping(value = "/holamundo", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//	Logger logger = LogManager.getLogger(DevelopController.class);
+
+	@GetMapping(value = "/holamundo")
 	public ResponseEntity helloWorld() {
-		
-		logger.info(":::hola mundo:::");
-		
+
+//		logger.info(":::hola mundo:::");
+
 		ResponseEntity entity = null;
 		entity = ResponseEntity.ok().body("{\"status\":\"ok\"}");
 		return entity;
 	}
+	
+	@GetMapping(value = "/getuser")
+	public ArrayList<Empleado> obteEmpleados(){
+		return empleadoService.obtenerUsuario();
+	}
+	
+	@PostMapping(value = "/saveuser")
+	public Empleado guardarEmpleado(@RequestBody Empleado empleado) {
+		return this.guardarEmpleado(empleado);
+		
+	}
 
-//	@GetMapping("/monstrarEmpleado")
-//	public List<Empleado> getEmpleado(){
-//		logger.info("get empleado");
+
+//	@PostMapping(value = "/holamundo", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity helloWorld() {
 //		
-//		List<Empleado> empleadoList = null;
+//		logger.info(":::hola mundo:::");
 //		
-//		try {
-//			empleadoList = empleadoService.findAll();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} 
-//		
-//		return empleadoList;
-//	}
-
-
-	// peticion get
-//	@GetMapping("/obtenerEmpleado")
-//	public List<Empleado> listaEmpleado() {
-//		logger.info("obtenerEmpleado");
-//		return service.listarEmpleados();
-//	}
-
-//	public void guardarEmpleado(Empleado empleado) {
-//		service.guardarEmpleado(empleado);
-//	}
-//	
-//	public Producto obtenerProductoId(Integer id) {
-//		return service.obtenerEmpleadoId(id);
+//		ResponseEntity entity = null;
+//		entity = ResponseEntity.ok().body("{\"status\":\"ok\"}");
+//		return entity;
 //	}
 
 	/*
-	 * use database develop_db;
-	 * CREATE TABLE `tbl_empleado` ( `id` INT NOT NULL,
+	 * use database develop_dba; CREATE TABLE `tbl_empleado` ( `id` INT NOT NULL,
 	 * `primerNombre` VARCHAR(20) NULL, `segundoNombre` VARCHAR(20) NULL,
 	 * `apelliPat` VARCHAR(20) NULL, `apelliMat` VARCHAR(20) NULL, `edad` INT NULL,
 	 * `sexo` VARCHAR(10) NULL, `fechaNacimiento` DATE NULL, `puesto` VARCHAR(60)
