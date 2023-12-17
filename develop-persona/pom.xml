@@ -6,8 +6,8 @@
 	<groupId>com.develop.app</groupId>
 	<artifactId>develop-app</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1</version>
 	<name>develop-app</name>
+	<version>0.0.1</version>
 	<url>http://maven.apache.org</url>
 	<description>develop app crud</description>
 	<properties>
@@ -133,16 +133,17 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>1.1.0.RELEASE</version>
+			<version>2.4.4</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.dev</groupId>
 			<artifactId>SupportCore</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 
-		<!--concectar a mysql desde weblogic		-->
+		<!-- concectar a mysql desde weblogic		-->
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot</artifactId>
@@ -155,6 +156,7 @@
 			<scope>runtime</scope>
 			<version>8.0.13</version>
 		</dependency>
+	
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -165,14 +167,41 @@
 	</dependencies>
 	<!--	profiles-->
 	<profiles>
+		
+		
+<!--		<profile>-->
+<!--			<id>dev</id>-->
+<!--			<properties>-->
+<!--				<jndi.name>jdbc/develop_dba</jndi.name>-->
+<!--			</properties>-->
+<!--		</profile>-->
+		
+		
 		<profile>
 			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
-				<jndi.name>jdbc/develop_dba</jndi.name>
+				<base.url>jdbc:mysql://localhost:3306/develop_dba</base.url>
+				<base.username>root</base.username>
+				<base.datopwd>root</base.datopwd>
+				<base.driver>com.mysql.cj.jdbc.Driver</base.driver>
+				<base.platform>mysql</base.platform>
+				<spring.profiles.active>dev</spring.profiles.active>
+				<server.servlet.context-path>/ikon</server.servlet.context-path>
+				<jwt.secret>ikonnextcdc</jwt.secret>
+				<server.portserver.port>9095</server.portserver.port>
+				<path.url.token>http://127.0.0.1:9091/ikon/api/auth/validatoken</path.url.token>
+				<base.schema>ikonbase</base.schema>
+				<path.image>src/main/resources/static/images/</path.image>
+<!-- 			<path.image>/Users/icb_ipsra/Documents/static/images/</path.image> -->
+				
+				<path.cross.origin>http://localhost:8080</path.cross.origin>
 			</properties>
 		</profile>
-
 	</profiles>
+	
 	<build>
 		<finalName>DevelopApp</finalName>
 		<resources>

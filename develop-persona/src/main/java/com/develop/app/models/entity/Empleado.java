@@ -25,13 +25,21 @@ public class Empleado {
 	@Column(unique = true , nullable = false)
 	private Integer id;
 
+	@Column
 	private String primerNombre;
+	@Column
 	private String segundoNombre;
+	@Column
 	private String apelliPat;
+	@Column
 	private String apelliMat;
+	@Column
 	private Integer edad;
+	@Column
 	private String sexo;
+	@Column
 	private Date fechaNacimiento;
+	@Column
 	private String puesto;
 
 }
