@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.develop.app</groupId>
-	<artifactId>develop-app</artifactId>
+
+	<groupId>com.develop.pokemon</groupId>
+	<artifactId>public-develop</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>develop-app</name>
-	<version>0.0.1</version>
+	<name>public-develop Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	<description>develop app crud</description>
+
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<jdk.version>1.8</jdk.version>
 		<log4j2.version>2.17.0</log4j2.version>
 		<log4j2-web.version>2.17.1</log4j2-web.version>
@@ -21,8 +26,8 @@
 		<jstl.version>1.2</jstl.version>
 		<ojdbc6.version>11.2.0.4</ojdbc6.version>
 	</properties>
-	<dependencies>
-		<!-- Spring -->
+
+	<dependencies><!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -136,11 +141,11 @@
 			<version>2.4.4</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.dev</groupId>
-			<artifactId>SupportCore</artifactId>
-			<version>0.0.1</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.dev</groupId>-->
+<!--			<artifactId>SupportCore</artifactId>-->
+<!--			<version>0.0.1</version>-->
+<!--		</dependency>-->
 
 		<!-- concectar a mysql desde weblogic		-->
 
@@ -165,46 +170,43 @@
 		</dependency>
 
 	</dependencies>
-	<!--	profiles-->
-	<profiles>
-
-
-		<profile>
-			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<!--				<jndi.name>jdbc/develop_dba</jndi.name>-->
-
-				<base.url>jdbc:mysql://localhost:3306/develop_dba?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrival=true</base.url>
-				<base.username>root</base.username>
-				<base.datopwd>admin01!</base.datopwd>
-				<base.driver>com.mysql.cj.jdbc.Driver</base.driver>
-				<base.platform>mysql</base.platform>
-			</properties>
-		</profile>
-	</profiles>
 
 	<build>
-		<finalName>DevelopApp</finalName>
-		<resources>
-			<resource>
-				<directory>src/main/resources/</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
-				</configuration>
-			</plugin>
-		</plugins>
+		<finalName>public-develop</finalName>
+		<pluginManagement><!-- lock down plugins versions to avoid using Maven
+			defaults (may be moved to parent pom) -->
+			<plugins>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<!-- see
+				http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>3.2.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
-
 </project>

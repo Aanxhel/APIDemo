@@ -87,3 +87,4 @@ gradle
 
 ### compresores ###
 *.zip
+/Ikon-Process/

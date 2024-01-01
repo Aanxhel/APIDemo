@@ -9,16 +9,17 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 public class GenericDao extends JdbcDaoSupport{
+//public class GenericDao {
 	
-//	@Autowired
-//	private JdbcTemplate jdbcTemplate;
-	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
 	private static final Logger logger = LoggerFactory.getLogger(GenericDao.class);
-	
+
 	@PostConstruct
 	private void initialize() {
 		logger.info("initialize");
-//		setJdbcTemplate(jdbcTemplate);
+		setJdbcTemplate(jdbcTemplate);
 	}
 
 }

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,14 +29,28 @@ public class DevelopController {
 		entity = ResponseEntity.ok().body("{\"status\":\"ok\"}");
 		return entity;
 	}
+	
+	@GetMapping(value = "/adduser")
+	public ResponseEntity adduser() {
+		
+		logger.info(":::hola mundo:::");
+		
+		ResponseEntity entity = null;
+		entity = ResponseEntity.ok().body("{\"status\":\"ok\"}");
+		return entity;
+	}
 
 	
 
 	/*
-	 * use database develop_dba; CREATE TABLE `tbl_empleado` ( `id` INT NOT NULL,
-	 * `primerNombre` VARCHAR(20) NULL, `segundoNombre` VARCHAR(20) NULL,
-	 * `apelliPat` VARCHAR(20) NULL, `apelliMat` VARCHAR(20) NULL, `edad` INT NULL,
-	 * `sexo` VARCHAR(10) NULL, `fechaNacimiento` DATE NULL, `puesto` VARCHAR(60)
-	 * NULL, PRIMARY KEY (`id`));
+	 * use database develop_dba;
+	 * CREATE TABLE tbl_empleado (
+	 * id INT NOT NULL, primerNombre VARCHAR(20) NULL, segundoNombre VARCHAR(20) NULL,
+	 *  apelliPat VARCHAR(20) NULL, apelliMat VARCHAR(20) NULL, 
+	 *  edad INT NULL, sexo VARCHAR(10) NULL, fechaNacimiento DATE NULL, 
+	 *  puesto VARCHAR(60) NULL, PRIMARY KEY (id));
+	 * 
+	 * INSERT INTO tbl_empleado(id,primerNombre,segundoNombre,apelliPat,apelliMat) 
+	 * VALUES(1,"Jose","Arturo","Gonzalez","Hernandez");
 	 */
 }
