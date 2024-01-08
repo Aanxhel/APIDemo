@@ -10,7 +10,7 @@ import com.develop.app.models.dao.DevelopDao;
 import com.develop.app.models.entity.Empleado;
 
 @Repository("DevelopDao")
-public class DevelopDaoImpl extends GenericDao implements DevelopDao{
+public abstract class DevelopDaoImpl extends GenericDao implements DevelopDao{
 	
 	private static final Logger logger = LoggerFactory.getLogger(DevelopDaoImpl.class);
 	
