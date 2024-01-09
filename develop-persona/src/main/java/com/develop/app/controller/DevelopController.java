@@ -1,5 +1,7 @@
 package com.develop.app.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.develop.app.models.services.EmpleadoService;
+import com.develop.app.models.entity.Persona;
+import com.develop.app.models.services.PersonaService;
 
 @RestController
 @SuppressWarnings({ "rawtypes" })
 public class DevelopController {
 	
 	@Autowired
-	EmpleadoService empleadoService;
-
+	PersonaService personaService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(DevelopController.class);
 
 	@PostMapping(value = "/holamundo", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -30,27 +33,14 @@ public class DevelopController {
 		return entity;
 	}
 	
-	@GetMapping(value = "/adduser")
-	public ResponseEntity adduser() {
+	@GetMapping("/listaempleado")
+	public List<Persona> index(){
 		
-		logger.info(":::hola mundo:::");
+		List<Persona> listPersona = null;
+		listPersona = personaService.findAll();
 		
-		ResponseEntity entity = null;
-		entity = ResponseEntity.ok().body("{\"status\":\"ok\"}");
-		return entity;
+		return listPersona;
 	}
-
 	
 
-	/*
-	 * use database develop_dba;
-	 * CREATE TABLE tbl_empleado (
-	 * id INT NOT NULL, primerNombre VARCHAR(20) NULL, segundoNombre VARCHAR(20) NULL,
-	 *  apelliPat VARCHAR(20) NULL, apelliMat VARCHAR(20) NULL, 
-	 *  edad INT NULL, sexo VARCHAR(10) NULL, fechaNacimiento DATE NULL, 
-	 *  puesto VARCHAR(60) NULL, PRIMARY KEY (id));
-	 * 
-	 * INSERT INTO tbl_empleado(id,primerNombre,segundoNombre,apelliPat,apelliMat) 
-	 * VALUES(1,"Jose","Arturo","Gonzalez","Hernandez");
-	 */
 }

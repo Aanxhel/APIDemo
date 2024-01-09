@@ -9,10 +9,10 @@
 		<version>2.2.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.develop.pokemon.app</groupId>
-	<artifactId>pokeapp</artifactId>
+	<groupId>com.invex.webapp</groupId>
+	<artifactId>persona-invex-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>pokeapp</name>
+	<name>persona-invex-test</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>8</java.version>
@@ -37,6 +37,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>

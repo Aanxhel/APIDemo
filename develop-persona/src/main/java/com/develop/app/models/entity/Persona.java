@@ -1,5 +1,6 @@
 package com.develop.app.models.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,37 +10,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "tbl_empleado")
-@AllArgsConstructor
-@NoArgsConstructor
-public class Empleado {
+@Table(name = "persona_tbl")
+public class Persona implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true , nullable = false)
-	private Integer id;
-
-	@Column
-	private String primerNombre;
-	@Column
-	private String segundoNombre;
-	@Column
-	private String apelliPat;
-	@Column
-	private String apelliMat;
-	@Column
+	private Long id;
+	
+	private String nombre;
+	
+	@Column(name = "apellido_paterno")
+	private String apellPat;
+	
+	@Column(name = "apellido_materno")
+	private String apellMat;
+	
 	private Integer edad;
-	@Column
+	
 	private String sexo;
-	@Column
+	
+	@Column(name = "fecha_nacimiento")
 	private Date fechaNacimiento;
-	@Column
+	
 	private String puesto;
 
 }
