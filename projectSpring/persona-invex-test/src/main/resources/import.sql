@@ -1,0 +1,2 @@
+INSERT INTO empleado_tbl (primerNombre,segundoNombre,apellido_paterno,apellido_materno,edad,sexo,fecha_nacimiento,puesto) 
+                    VALUES("Jose","Arturo","Molina","Hernandez",15,"M","2012-01-01","cajero");
