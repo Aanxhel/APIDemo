@@ -1,3 +1,4 @@
+/.metadata/
 # built application files
 *.apk
 *.ap_
@@ -31,7 +32,7 @@ tmp/**/*
 .classpath
 .settings/
 .loadpath
-/.metadata/
+
 
 # External tool builders
 .externalToolBuilders/
@@ -75,6 +76,7 @@ projectFilesBackup
 build.gradle
 gradlew
 gradlew.bat
+local.properties
 settings.gradle
 .gradle
 .idea
@@ -84,7 +86,3 @@ gradle
 /target/
 *.fpr
 .DS_Store
-
-### compresores ###
-*.zip
-projectSpring/Ikon-Process/
