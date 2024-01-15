@@ -1,0 +1,36 @@
+<div class="card border-dark mb-3" >
+  <div class="card-header">Empleado</div>
+  <div class="card-body text-dark">
+    <h5 class="card-title">Lista Empleado</h5>
+
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>primerNombre</th>
+          <th>segundoNombre</th>
+          <th>apellido Paterno</th>
+          <th>apellidoMaterno</th>
+          <th>edad</th>
+          <th>sexo</th>
+          <th>fecha de Nacimiento</th>
+          <th>puesto</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let empleado of empleados">
+          <td>{{ empleado.id }}</td>
+          <td>{{ empleado.primerNombre }}</td>
+          <td>{{ empleado.segundoNombre }}</td>
+          <td>{{ empleado.apellidoPaterno }}</td>
+          <td>{{ empleado.apellidoMaterno }}</td>
+          <td>{{ empleado.edad }}</td>
+          <td>{{ empleado.sexo }}</td>
+          <td>{{ empleado.fechaNacimiento }}</td>
+          <td>{{ empleado.puesto }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

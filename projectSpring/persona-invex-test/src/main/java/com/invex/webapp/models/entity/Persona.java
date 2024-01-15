@@ -12,16 +12,24 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name= "persona_tbl")
-public class Persona implements Serializable {/**
-	 * 
-	 */
+@Table(name = "persona_tbl")
+public class Persona implements Serializable {
+	/**
+	* 
+	*/
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	private String primerNombre;
+	private String segundoNombre;
+	private String apellidoPaterno;
+	private String apellidoMaterno;
+	private String edad;
+	private String sexo;
+	private String fechaNacimiento;
+	private String puesto;
 
-	
-	
 }
