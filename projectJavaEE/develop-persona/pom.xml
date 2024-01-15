@@ -11,15 +11,17 @@
 	<url>http://maven.apache.org</url>
 	<description>develop app crud</description>
 	<properties>
-		<jdk.version>1.8</jdk.version>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<log4j2.version>2.17.0</log4j2.version>
 		<log4j2-web.version>2.17.1</log4j2-web.version>
 		<slf4j.version>1.7.33</slf4j.version>
-		<spring.version>5.3.22</spring.version>
-		<jackson.version>2.13.3</jackson.version>
-		<javax.servlet-api.version>3.0.1</javax.servlet-api.version>
-		<jstl.version>1.2</jstl.version>
-		<ojdbc6.version>11.2.0.4</ojdbc6.version>
+		<spring.version>4.3.7.RELEASE</spring.version>
+		<project.version>1.0.0</project.version>
+		<!--	<jackson-core.version>2.4.1</jackson-core.version>  2.4.2 -->
+		<jackson-core.version>2.13.3</jackson-core.version>
+		<ojdbc6.version>11.2.0.3</ojdbc6.version>
+		<gson.version>2.2.2</gson.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -27,12 +29,20 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-validator</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -53,6 +63,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<!-- log4j -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -74,34 +85,9 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		<!-- jackson -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${jstl.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>${javax.servlet-api.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Utils -->
+
+
+		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -109,79 +95,95 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.tomcat</groupId>
-			<artifactId>tomcat-util</artifactId>
-			<version>8.5.23</version>
-		</dependency>
 
-		<!--junit-->
+		<!-- jackson -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson-core.version}</version>
 		</dependency>
-		<!-- javax.persistence-api -->
 		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>javax.persistence-api</artifactId>
-			<version>2.2</version>
-		</dependency>
-
-		<!-- spring-data-jpa -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>2.4.4</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-core.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.dev</groupId>
-			<artifactId>SupportCore</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-
-		<!-- concectar a mysql desde weblogic		-->
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot</artifactId>
-			<version>3.2.0</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson-core.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-			<version>8.0.13</version>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.3.164</version>
-			<scope>test</scope>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
 		</dependency>
+
+
+		<!--		<dependency>-->
+		<!--			<groupId>oracle</groupId>-->
+		<!--			<artifactId>ojdbc6</artifactId>-->
+		<!--			<version>${ojdbc6.version}</version>-->
+		<!--		</dependency>-->
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
+
+		<!-- SupportCore -->
+		<!--		<dependency>-->
+		<!--			<groupId>com.cdc</groupId>-->
+		<!--			<artifactId>SupportCore</artifactId>-->
+		<!--			<version>0.0.1</version>-->
+		<!--		</dependency>-->
+
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.6</version>
+		</dependency>
+
+
+		<!-- ValidacionesCore --><!-- Match -->
+		<!--		<dependency>-->
+		<!--			<groupId>com.cdc</groupId>-->
+		<!--			<artifactId>ValidacionesCore</artifactId>-->
+		<!--			<version>0.0.1</version>-->
+		<!--		</dependency>-->
 
 	</dependencies>
 	<!--	profiles-->
 	<profiles>
 
-
+		<profile>
+			<id>local</id>
+			<properties>
+				<!--
+				url.match>http://10.77.50.90:7003/UtileriasCore/consultarMatch</url.match>  -->
+				<!-- AUTHENTICATION PROPERTIES -->
+				<jndi.name>jdbc/persona_dba</jndi.name>
+			</properties>
+		</profile>
+		
+		
 		<profile>
 			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
-								<jndi.name>jdbc/develop_dba</jndi.name>
+				<!-- JDBC PROPERTIES -->
+				<jndi.name>jdbc/ccredito</jndi.name>
+				<!-- creditoDatasource-->
 
-<!--				<base.url>jdbc:mysql://localhost:3306/develop_dba?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrival=true</base.url>-->
-<!--				<base.username>root</base.username>-->
-<!--				<base.datopwd>admin01!</base.datopwd>-->
-<!--				<base.driver>com.mysql.cj.jdbc.Driver</base.driver>-->
-<!--				<base.platform>mysql</base.platform>-->
+
 			</properties>
 		</profile>
 	</profiles>
@@ -200,6 +202,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
+					<encoding>UTF-8</encoding>
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
 				</configuration>

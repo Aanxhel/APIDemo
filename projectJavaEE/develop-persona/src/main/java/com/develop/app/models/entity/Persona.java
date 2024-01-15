@@ -3,41 +3,45 @@ package com.develop.app.models.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Entity
-@Table(name = "persona_tbl")
+@JsonIgnoreProperties
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@AllArgsConstructor
+@NoArgsConstructor
 public class Persona implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@JsonProperty("id")
 	private Long id;
 	
+	@JsonProperty("nombre")
 	private String nombre;
 	
-	@Column(name = "apellido_paterno")
+	@JsonProperty("apellidoPaterno")
 	private String apellPat;
 	
-	@Column(name = "apellido_materno")
+	@JsonProperty("apellidoMaterno")
 	private String apellMat;
 	
+	@JsonProperty("edad")
 	private Integer edad;
 	
+	@JsonProperty("sexo")
 	private String sexo;
 	
-	@Column(name = "fecha_nacimiento")
+	@JsonProperty("fechaNacimiento")
 	private Date fechaNacimiento;
 	
+	@JsonProperty("puesto")
 	private String puesto;
 
 }
