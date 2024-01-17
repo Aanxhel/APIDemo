@@ -15,7 +15,7 @@ public class AgendaController {
 	@Autowired
 	AgendaService agendaService;
 	
-	@GetMapping("/listapkm")
+	@GetMapping("/listaagenda")
 	public List<Agenda> index(){
 		
 		List<Agenda> lstAgenda = null;
@@ -24,5 +24,4 @@ public class AgendaController {
 		return lstAgenda;
 	}
 	
-
 }

@@ -13,9 +13,8 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name= "agenda_tbl")
-public class Agenda implements Serializable{/**
-	 * 
-	 */
+public class Agenda implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
