@@ -1,6 +1,7 @@
 package com.invex.webapp.models.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,9 +28,9 @@ public class Persona implements Serializable {
 	private String segundoNombre;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
-	private String edad;
+	private Integer edad;
 	private String sexo;
-	private String fechaNacimiento;
+	private Date fechaNacimiento;
 	private String puesto;
 
 }
