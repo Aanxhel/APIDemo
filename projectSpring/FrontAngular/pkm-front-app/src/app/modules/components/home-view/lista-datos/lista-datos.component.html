@@ -1,1 +1,24 @@
-<p>lista-datos works!</p>
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">registro de empleado</h3>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>id</th>
+            <th>nombre</th>
+            <th>tipo</th>
+            <th>generacion</th>
+            <th>genero</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pokemon of pokemons">
+            <th>{{pokemon.id}}</th>
+            <th>{{pokemon.nombre}}</th>
+            <th>{{pokemon.tipo}}</th>
+            <th>{{pokemon.generacion}}</th>
+            <th>{{pokemon.genero}}</th>
+        </tr>
+    </tbody>
+</table>
+</div>

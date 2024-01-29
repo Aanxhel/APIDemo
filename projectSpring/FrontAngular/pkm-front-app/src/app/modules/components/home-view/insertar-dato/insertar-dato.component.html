@@ -1,1 +1,15 @@
-<p>insertar-dato works!</p>
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">registro de empleado</h3>
+    <form (ngSubmit)= "onSubmit()" >
+    <div class="form-group">
+        <label>Nombre</label><input type="text" class="form-control" id="nombre" (ngModel) = "pokemon.nombre" name="nombre">
+        <label>tipo</label><input type="text" class="form-control" id="tipo" (ngModel) = "pokemon.tipo" name="tipo">
+        <label>Generacion</label><input type="text" class="form-control" id="generacion" (ngModel) = "pokemon.generacion" name="generacion">
+        <label>genero</label><input type="text" class="form-control" id="genero" (ngModel) = "pokemon.genero" name="genero">
+  
+         </div>
+
+         
+         <button class="btn btn-success">Guardar</button>
+    </form>
+</div>
