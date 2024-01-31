@@ -8,17 +8,35 @@ import { Pokemon } from './pokemon';
 })
 export class PokemonService {
 
-  //lista de datos
-  private baseUrl = "http://localhost:8080/";
+  //base URL
+  private baseUrl = "http://localhost:8080";
 
   constructor( private httpClient: HttpClient ) { }
 
+  //lista select
   obtenerListaPokemon():Observable<Pokemon[]>{
-      return this.httpClient.get<Pokemon[]>("http://localhost:8080/listapkm");
+      return this.httpClient.get<Pokemon[]>(`${this.baseUrl}/listapkm`);
+  }
+
+  //buscar get
+  obtenerIdPokemon(id: number): Observable<Pokemon>{
+    return this.httpClient.get<Pokemon>(`${this.baseUrl}/listapkm/{id}`);
   }
   
-  //metodo para crear  datos
-  registrarPokemon(pokemon:Pokemon): Observable<Object>{
-    return this.httpClient.post("http://localhost:8080/inserdata",pokemon);
+  //metodo insreartar
+  registrarPokemon(pokemon: Pokemon): Observable<Pokemon>{
+    return this.httpClient.post<Pokemon>(`${this.baseUrl}/inserdata`, pokemon);
   }
+
+  //editar update
+  actualizarIdPokemon(id: number, pokemon:Pokemon): Observable<Pokemon>{
+    return this.httpClient.put<Pokemon>(`${this.baseUrl}/putpkm/{id}`, pokemon);
+  }
+
+  //eliminar delete
+  eliminarPokemon(id:number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseUrl}/delete/{id}`);
+  }
+
+
 }

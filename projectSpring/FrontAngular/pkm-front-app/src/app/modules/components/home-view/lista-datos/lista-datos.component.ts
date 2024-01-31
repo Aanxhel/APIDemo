@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from "../pokemon";
 import { PokemonService } from "../pokemon.service";
+import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-lista-datos',
@@ -22,5 +23,6 @@ export class ListaDatosComponent implements OnInit{
       this.pokemons = dato;
     });
   }
+  
 
 }
