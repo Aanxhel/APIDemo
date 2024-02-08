@@ -1,13 +1,13 @@
-package com.mhr.registro.app.models.entity.service.impl;
+package com.mhr.registro.app.models.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mhr.registro.app.models.dao.MhrDao;
 import com.mhr.registro.app.models.entity.Monster;
-import com.mhr.registro.app.models.entity.dao.MhrDao;
-import com.mhr.registro.app.models.entity.service.MhrService;
+import com.mhr.registro.app.models.service.MhrService;
 
 @Service
 public class MhrServiceImpl implements MhrService {

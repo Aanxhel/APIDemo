@@ -1,4 +1,4 @@
-package com.mhr.registro.app.models.entity.dao;
+package com.mhr.registro.app.models.dao;
 
 import org.springframework.data.repository.CrudRepository;
 

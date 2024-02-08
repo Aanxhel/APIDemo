@@ -1,6 +1,7 @@
 package com.mhr.registro.app.models.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,10 +21,11 @@ public class Monster implements Serializable{/**
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String nombre;
 	private String ventaja;
 	private String desventaja;
 	private Integer dificultad;
+	private Date date;
 	
 }
