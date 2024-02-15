@@ -58,20 +58,21 @@ public class MhrController {
 	}
 
 	// actualizar
-	@PutMapping("/updateMhr/{id}")
-	public ResponseEntity<?> updateMhr(@RequestBody Monster request, @PathVariable Long id) {
+	@PutMapping("/updatemhr/{id}")
+	public ResponseEntity<Monster> updateMhr(@RequestBody Monster request, @PathVariable Long id) {
 
-		Monster mhr = null;
+		Monster mhr = mhrService.obtenerMhId(id);
+		
 		try {
 			mhr = mhrService.obtenerMhId(id);
 
-			mhr.setNombre(mhr.getNombre());
-			mhr.setVentaja(mhr.getVentaja());
-			mhr.setDesventaja(mhr.getDesventaja());
-			mhr.setDificultad(mhr.getDificultad());
-			
+			mhr.setNombre(request.getNombre());
+			mhr.setVentaja(request.getVentaja());
+			mhr.setDesventaja(request.getDesventaja());
+			mhr.setDificultad(request.getDificultad());
 
 			mhrService.agragarMh(mhr);
+			System.out.println(mhr);
 
 			return new ResponseEntity<Monster>(HttpStatus.OK);
 		} catch (Exception e) {

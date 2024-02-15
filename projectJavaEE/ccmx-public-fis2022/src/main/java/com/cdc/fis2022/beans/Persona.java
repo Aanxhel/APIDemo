@@ -28,6 +28,7 @@ public class Persona {
 	    )
 	    @Size(min = 3, max = 50)
 	    private String primerNombre;
+	    
 	    @JsonProperty("segundoNombre")
 	    @Pattern(
 	        regexp = "(^[A-Za-z0-9]+)$",
@@ -35,6 +36,7 @@ public class Persona {
 	    )
 	    @Size(min = 3, max = 50)
 	    private String segundoNombre;
+	    
 	    @JsonProperty("apellidoPaterno")
 	    @Pattern(
 	        regexp = "(^[A-Za-z0-9]+)$",
@@ -42,6 +44,8 @@ public class Persona {
 	    )
 	    @Size(min = 3, max = 50)
 	    private String apellidoPaterno;
+	    
+	    
 	    @JsonProperty("apellidoMaterno")
 	    @NotBlank(
 	        message = "El campo Apellido Materno es obligatorio"
@@ -52,6 +56,8 @@ public class Persona {
 	    )
 	    @Size(min = 3, max = 50)
 	    private String apellidoMaterno;
+	    
+	    
 	    @JsonProperty("fechaNacimiento")
 	    @Pattern(
 	        regexp = "(^[0-9\\/\\-]+)$",

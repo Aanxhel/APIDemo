@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
@@ -22,10 +26,23 @@ public class Monster implements Serializable{/**
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nombre;
-	private String ventaja;
-	private String desventaja;
-	private Integer dificultad;
-	private Date date;
 	
+	@JsonProperty("nombre")
+    @Pattern(regexp = "^[A-Za-z0-9\\s]+$", message = "El campo Nombre no puede contener caracteres especiales" )
+    @Size(min = 1, max = 50)
+	private String nombre;
+	
+	@JsonProperty("ventaja")
+    @Pattern(regexp = "^[A-Za-z0-9]+$", message = "El campo ventaja no puede contener caracteres especiales" )
+    @Size(min = 1, max = 50)
+	private String ventaja;
+	
+	@JsonProperty("desventaja")
+    @Pattern(regexp = "^[A-Za-z0-9]+$", message = "El campo desventaja no puede contener caracteres especiales" )
+    @Size(min = 1, max = 50)
+	private String desventaja;
+	
+	@JsonProperty("dificultad")
+	private Integer dificultad;
+		
 }
