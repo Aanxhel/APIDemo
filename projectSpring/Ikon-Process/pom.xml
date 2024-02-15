@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.3</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.ikon.process</groupId>
+	<artifactId>Ikon-Process</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Ikon-Process</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.boot</groupId> -->
+		<!-- <artifactId>spring-boot-starter-security</artifactId> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.javacodegeeks.crossorigin</groupId> -->
+		<!-- <artifactId>com.javacodegeeks.crossorigin</artifactId> -->
+		<!-- <version>0.1.0</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- Base de datos -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>3.0.3</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- Jwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
+		<!-- Otros -->
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>commons-codec</groupId> -->
+<!-- 			<artifactId>commons-codec</artifactId> -->
+<!-- 		</dependency> -->
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.4</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>prod</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<base.url>jdbc:postgresql://localhost:5432/bdcdc</base.url>
+				<base.username>postgres</base.username>
+				<base.datopwd>123123</base.datopwd>
+				<base.driver>org.postgresql.Driver</base.driver>
+				<base.platform>postgresql</base.platform>
+				<spring.profiles.active>prod</spring.profiles.active>
+				<server.servlet.context-path>/ikon</server.servlet.context-path>
+				<jwt.secret>ikonnextcdc</jwt.secret>
+				<server.portserver.port>9095</server.portserver.port>
+				<path.url.token>http://127.0.0.1:9091/ikon/api/auth/validatoken</path.url.token>
+				<base.schema>ikonbase</base.schema>
+				<path.image>/Users/icb_ipsra/Documents/IKONS/public/imagenes/</path.image>
+				<path.cross.origin>http://localhost:8080</path.cross.origin>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<base.url>jdbc:mysql://localhost:8889/ikonbase</base.url>
+				<base.username>root</base.username>
+				<base.datopwd>root</base.datopwd>
+				<base.driver>com.mysql.cj.jdbc.Driver</base.driver>
+				<base.platform>mysql</base.platform>
+				<spring.profiles.active>dev</spring.profiles.active>
+				<server.servlet.context-path>/ikon</server.servlet.context-path>
+				<jwt.secret>ikonnextcdc</jwt.secret>
+				<server.portserver.port>9095</server.portserver.port>
+				<path.url.token>http://127.0.0.1:9091/ikon/api/auth/validatoken</path.url.token>
+				<base.schema>ikonbase</base.schema>
+				<path.image>src/main/resources/static/images/</path.image>
+<!-- 			<path.image>/Users/icb_ipsra/Documents/static/images/</path.image> -->
+				
+				<path.cross.origin>http://localhost:8080</path.cross.origin>
+			</properties>
+		</profile>
+		<profile>
+			<id>qa</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<!-- <base.url>jdbc:mysql://44.193.24.204:3306/ikonbase</base.url> -->
+				<base.url>jdbc:mysql://localhost:3306/ikonbase</base.url>
+				<base.username>username</base.username>
+				<base.datopwd>password</base.datopwd>
+				<base.driver>org.mariadb.jdbc.Driver</base.driver>
+				<base.platform>mariadb</base.platform>
+				<spring.profiles.active>qa</spring.profiles.active>
+				<server.servlet.context-path>/ikon</server.servlet.context-path>
+				<jwt.secret>ikonnextcdc</jwt.secret>
+				<server.portserver.port>9097</server.portserver.port>
+				<path.url.token>http://127.0.0.1:9091/ikon/api/auth/validatoken</path.url.token>
+				<base.schema>ikonbase</base.schema>
+<!-- 				<path.image>files/public/</path.image> -->
+				<path.image>src/main/resources/static/images/</path.image>
+				<path.cross.origin>http://localhost:8080</path.cross.origin>
+			</properties>
+		</profile>
+
+
+	</profiles>
+
+</project>
