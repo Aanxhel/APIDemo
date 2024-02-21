@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import com.cdc.fis2022.Constantes.Constantes;
+import com.cdc.fis2022.constantes.Constantes;
 import com.cdc.fis2022.dao.GenericDao;
 import com.cdc.fis2022.dao.IObtenCadenaDao;
 

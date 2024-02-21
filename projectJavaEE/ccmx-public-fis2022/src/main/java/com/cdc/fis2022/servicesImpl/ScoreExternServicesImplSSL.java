@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 import com.cdc.Support.Networking.beans.GenericResponse;
 import com.cdc.Support.Networking.templates.RestTemplateGenericSSL;
-import com.cdc.fis2022.Constantes.Constantes;
 import com.cdc.fis2022.beans.Chain;
 import com.cdc.fis2022.beans.DataA;
 import com.cdc.fis2022.beans.ResponseScoreExtern;
+import com.cdc.fis2022.constantes.Constantes;
 import com.cdc.fis2022.dao.ICadenasDao;
 
 @Service

@@ -1,4 +1,4 @@
-package com.cdc.fis2022.Mapper;
+package com.cdc.fis2022.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

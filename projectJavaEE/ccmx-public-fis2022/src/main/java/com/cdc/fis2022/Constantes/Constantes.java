@@ -1,4 +1,4 @@
-package com.cdc.fis2022.Constantes;
+package com.cdc.fis2022.constantes;
 
 public enum Constantes {
 	

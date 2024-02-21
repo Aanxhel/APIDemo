@@ -22,12 +22,12 @@ import com.cdc.Support.Match.beans.MatchRequest;
 import com.cdc.Support.Networking.beans.GenericResponse;
 import com.cdc.Support.beans.ErrorDTO;
 import com.cdc.Support.exceptions.MatchServiceException;
-import com.cdc.fis2022.Constantes.Constantes;
 import com.cdc.fis2022.beans.BeanAccesN;
 import com.cdc.fis2022.beans.Chain;
 import com.cdc.fis2022.beans.Persona;
 import com.cdc.fis2022.beans.RequestFolioConsulta;
 import com.cdc.fis2022.beans.ResponseScoreExtern;
+import com.cdc.fis2022.constantes.Constantes;
 import com.cdc.fis2022.exceptions.BadRequestException;
 import com.cdc.fis2022.services.ICadenaServices;
 import com.cdc.fis2022.services.IMatchServices;
@@ -175,7 +175,7 @@ public class ScoreFisServiceImpl implements IScoreFisService{ // clase que sera 
 				}
 		}
 		return new ResponseEntity<>(responseScoreExtern, HttpStatus.INTERNAL_SERVER_ERROR);
-	}	
+	}//	fin scoreRequestService
 	
 	
 	

@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cdc.fis2022.Constantes.Constantes;
+import com.cdc.fis2022.constantes.Constantes;
 import com.cdc.fis2022.dao.IObtenCadenaDao;
 import com.cdc.fis2022.services.ICadenaServices;
 
