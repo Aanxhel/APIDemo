@@ -15,7 +15,6 @@ public interface PokedexService {
 	// guardar
 	public void savePkm(Pokemon pokemon);
 
-
 	// eliminar
 	public void deletePkm(Long id);
 }
