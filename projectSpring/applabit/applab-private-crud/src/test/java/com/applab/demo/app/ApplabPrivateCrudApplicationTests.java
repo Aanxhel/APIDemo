@@ -1,10 +1,10 @@
-package com.demo.elektra.consulta.app;
+package com.applab.demo.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoElektraConsultaApplicationTests {
+class ApplabPrivateCrudApplicationTests {
 
 	@Test
 	void contextLoads() {
