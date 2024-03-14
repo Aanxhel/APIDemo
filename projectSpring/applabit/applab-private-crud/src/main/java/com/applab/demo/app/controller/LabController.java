@@ -10,26 +10,26 @@ import com.applab.demo.app.model.entity.UsuarioRequest;
 import com.applab.demo.app.model.service.LabService;
 
 
+
 @RestController
 public class LabController {
 	
+
 	@Autowired
-	LabService appService;
+	LabService service;
 
 	@GetMapping("/hello")
 	public String hello() {
-		return String.format("adios goku!");
+		return String.format("hola mundo!!");
 	}
-	
 	
 	@GetMapping("/lista")
-
-	public List<UsuarioRequest> listaUsuarios(){
+	public List<UsuarioRequest> listar(){
 		
-		List<UsuarioRequest> listUsuario = null;
-		listUsuario = appService.listaUsuarios();
+		List<UsuarioRequest> usuarioReq = service.listar();
 		
-		return listUsuario;
+		return usuarioReq;
 	}
+	
 
 }

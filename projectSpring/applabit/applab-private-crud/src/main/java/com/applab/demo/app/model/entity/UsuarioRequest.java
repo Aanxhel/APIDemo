@@ -2,6 +2,7 @@ package com.applab.demo.app.model.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,10 @@ public class UsuarioRequest implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	public String name;
+	
+	@Column( unique=true)
 	public String mail;
+	
 	public String password;
 	public String address;
 
